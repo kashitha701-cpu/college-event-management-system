@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="College Event Management System - Discover, view, and register for college events in one place.">
+    <title>College Event Management System</title>
+
+    <!-- CSS file will be linked here later -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+         1. NAVIGATION BAR
+         ============================================================ -->
+    <header class="site-header" id="home">
+        <nav class="navbar" aria-label="Main navigation">
+
+            <!-- Logo / Website Name -->
+            <div class="navbar-logo">
+                <a href="#home" class="logo-link">
+                    <!-- Placeholder for logo image (add later) -->
+                    <span class="logo-icon" aria-hidden="true">🎓</span>
+                    <span class="logo-text">College Events</span>
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="navbar-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#upcoming-events">Events</a></li>
+                <li><a href="#previous-events">Previous Events</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Student Login / Register Button -->
+            <div class="navbar-actions">
+                <!-- Later: link this to login.html -->
+                <a href="#" class="btn btn-primary btn-login" id="login-register-btn">Student Login / Register</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ============================================================
+             2. HERO SECTION
+             ============================================================ -->
+        <section class="hero" id="hero" aria-labelledby="hero-heading">
+            <div class="container hero-container">
+
+                <!-- Hero Text Content -->
+                <div class="hero-content">
+                    <h1 id="hero-heading" class="hero-title">Discover. Participate. Experience.</h1>
+                    <p class="hero-description">
+                        Your one-stop platform to find, explore, and register for all college events.
+                        From tech fests to cultural nights, never miss an opportunity to learn,
+                        compete, and have fun on campus.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#upcoming-events" class="btn btn-primary">Explore Events</a>
+                        <a href="#previous-events" class="btn btn-secondary">View Previous Events</a>
+                    </div>
+                </div>
+
+                <!-- Hero Image Placeholder (replace with image/illustration later) -->
+                <div class="hero-image">
+                    <div class="hero-image-placeholder">
+                        <!-- Later: <img src="images/hero.png" alt="Students enjoying a college event"> -->
+                        <p>Hero Image / Illustration Placeholder</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             3. UPCOMING EVENTS SECTION
+             Note: Later, these cards will be generated dynamically
+             from the database based on the event date.
+             ============================================================ -->
+        <section class="section upcoming-events" id="upcoming-events" aria-labelledby="upcoming-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2 id="upcoming-heading" class="section-title">Upcoming Events</h2>
+                    <p class="section-subtitle">Check out what's happening on campus soon and register before seats fill up.</p>
+                    <div class="event-search">
+
+    <input
+        type="text"
+        id="eventSearch"
+        placeholder="🔍 Search events..."
+    >
+
+    <select id="eventCategoryFilter">
+        <option value="all">All Categories</option>
+        <option value="technical">Technical</option>
+        <option value="cultural">Cultural</option>
+        <option value="sports">Sports</option>
+        <option value="workshop">Workshop</option>
+    </select>
+
+</div>
+                </div>
+
+                <!-- Container for all upcoming event cards
+                     (Later: JavaScript will fill this container with data) -->
+                <div class="events-grid upcoming-events-grid" id="upcoming-events-list">
+
+                    <!-- ---------- Event Card 1: Tech Fest ---------- -->
+                    <article class="event-card upcoming-event-card" data-event-id="1" data-category="technical">
+                        <div class="event-image">
+                            <div class="image-placeholder">Event Image</div>
+                        </div>
+                        <div class="event-body">
+                            <span class="event-category">Technical</span>
+                            <h3 class="event-title">Tech Fest 2026</h3>
+                            <ul class="event-meta">
+                                <li class="event-date">📅 <time datetime="2026-12-12">12 December 2026</time></li>
+                                <li class="event-time">🕘 10:00 AM - 5:00 PM</li>
+                                <li class="event-venue">📍 Main Auditorium</li>
+                            </ul>
+                            <p class="event-description">
+                                A day full of technology talks, project exhibitions, and hands-on demos by students and industry guests.
+                            </p>
+                        </div>
+                        <div class="event-actions">
+                            <!-- Later: link to event-details.html?id=1 -->
+                            <a href="#" class="btn btn-outline btn-view-details">View Details</a>
+                            <a href="#" class="btn btn-primary btn-register">Register Now</a>
+                        </div>
+                    </article>
+
+                    <!-- ---------- Event Card 2: Cultural Fest ---------- -->
+                    <article class="event-card upcoming-event-card" data-event-id="2" data-category="cultural">
+                        <div class="event-image">
+                            <div class="image-placeholder">Event Image</div>
+                        </div>
+                        <div class="event-body">
+                            <span class="event-category">Cultural</span>
+                            <h3 class="event-title">Rang Utsav - Cultural Fest</h3>
+                            <ul class="event-meta">
+                                <li class="event-date">📅 <time datetime="2026-12-20">20 December 2026</time></li>
+                                <li class="event-time">🕔 5:00 PM - 9:00 PM</li>
+                                <li class="event-venue">📍 Open Air Theatre</li>
+                            </ul>
+                            <p class="event-description">
+                                Celebrate music, dance, drama, and art with performances from students across all departments.
+                            </p>
+                        </div>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-outline btn-view-details">View Details</a>
+                            <a href="#" class="btn btn-primary btn-register">Register Now</a>
+                        </div>
+                    </article>
+
+                    <!-- ---------- Event Card 3: Coding Competition ---------- -->
+                    <article class="event-card upcoming-event-card" data-event-id="3" data-category="competition">
+                        <div class="event-image">
+                            <div class="image-placeholder">Event Image</div>
+                        </div>
+                        <div class="event-body">
+                            <span class="event-category">Competition</span>
+                            <h3 class="event-title">CodeSprint Coding Competition</h3>
+                            <ul class="event-meta">
+                                <li class="event-date">📅 <time datetime="2027-01-08">8 January 2027</time></li>
+                                <li class="event-time">🕙 10:00 AM - 1:00 PM</li>
+                                <li class="event-venue">📍 Computer Lab 2</li>
+                            </ul>
+                            <p class="event-description">
+                                Solve logic and programming problems against the clock and win exciting prizes and certificates.
+                            </p>
+                        </div>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-outline btn-view-details">View Details</a>
+                            <a href="#" class="btn btn-primary btn-register">Register Now</a>
+                        </div>
+                    </article>
+
+                    <!-- ---------- Event Card 4: Sports Meet ---------- -->
+                    <article class="event-card upcoming-event-card" data-event-id="4" data-category="sports">
+                        <div class="event-image">
+                            <div class="image-placeholder">Event Image</div>
+                        </div>
+                        <div class="event-body">
+                            <span class="event-category">Sports</span>
+                            <h3 class="event-title">Annual Sports Meet</h3>
+                            <ul class="event-meta">
+                                <li class="event-date">📅 <time datetime="2027-01-18">18 January 2027</time></li>
+                                <li class="event-time">🕗 8:00 AM - 4:00 PM</li>
+                                <li class="event-venue">📍 College Sports Ground</li>
+                            </ul>
+                            <p class="event-description">
+                                Participate in track and field events, cricket, football, and many more team and individual games.
+                            </p>
+                        </div>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-outline btn-view-details">View Details</a>
+                            <a href="#" class="btn btn-primary btn-register">Register Now</a>
+                        </div>
+                    </article>
+
+                    <!-- ---------- Event Card 5: Workshop ---------- -->
+                    <article class="event-card upcoming-event-card" data-event-id="5" data-category="workshop">
+                        <div class="event-image">
+                            <div class="image-placeholder">Event Image</div>
+                        </div>
+                        <div class="event-body">
+                            <span class="event-category">Workshop</span>
+                            <h3 class="event-title">Web Development Workshop</h3>
+                            <ul class="event-meta">
+                                <li class="event-date">📅 <time datetime="2027-01-25">25 January 2027</time></li>
+                                <li class="event-time">🕑 2:00 PM - 5:00 PM</li>
+                                <li class="event-venue">📍 Seminar Hall B</li>
+                            </ul>
+                            <p class="event-description">
+                                A beginner-friendly hands-on workshop on building modern websites using HTML, CSS, and JavaScript.
+                            </p>
+                        </div>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-outline btn-view-details">View Details</a>
+                            <a href="#" class="btn btn-primary btn-register">Register Now</a>
+                        </div>
+                    </article>
+
+                    <!-- ---------- Event Card 6: Seminar ---------- -->
+                    <article class="event-card upcoming-event-card" data-event-id="6" data-category="seminar">
+                        <div class="event-image">
+                            <div class="image-placeholder">Event Image</div>
+                        </div>
+                        <div class="event-body">
+                            <span class="event-category">Seminar</span>
+                            <h3 class="event-title">Career Guidance Seminar</h3>
+                            <ul class="event-meta">
+                                <li class="event-date">📅 <time datetime="2027-02-03">3 February 2027</time></li>
+                                <li class="event-time">🕚 11:00 AM - 1:00 PM</li>
+                                <li class="event-venue">📍 Conference Room</li>
+                            </ul>
+                            <p class="event-description">
+                                Industry experts share tips on resumes, interviews, and building a successful career after graduation.
+                            </p>
+                        </div>
+                        <div class="event-actions">
+                            <a href="#" class="btn btn-outline btn-view-details">View Details</a>
+                            <a href="#" class="btn btn-primary btn-register">Register Now</a>
+                        </div>
+                    </article>
+
+                </div>
+                <!-- End of upcoming events list -->
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             4. EVENT CATEGORIES SECTION
+             Note: Later, clicking a category can filter the events.
+             ============================================================ -->
+        <section class="section event-categories" id="categories" aria-labelledby="categories-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2 id="categories-heading" class="section-title">Event Categories</h2>
+                    <p class="section-subtitle">Browse events by the type of activity you enjoy.</p>
+                </div>
+
+                <div class="categories-grid">
+
+                    <a href="#" class="category-card" data-category="technical">
+                        <span class="category-icon" aria-hidden="true">💻</span>
+                        <h3 class="category-name">Technical</h3>
+                        <p class="category-description">Hackathons, tech talks, and project expos.</p>
+                    </a>
+
+                    <a href="#" class="category-card" data-category="cultural">
+                        <span class="category-icon" aria-hidden="true">🎭</span>
+                        <h3 class="category-name">Cultural</h3>
+                        <p class="category-description">Music, dance, drama, and art festivals.</p>
+                    </a>
+
+                    <a href="#" class="category-card" data-category="sports">
+                        <span class="category-icon" aria-hidden="true">⚽</span>
+                        <h3 class="category-name">Sports</h3>
+                        <p class="category-description">Tournaments, athletics, and indoor games.</p>
+                    </a>
+
+                    <a href="#" class="category-card" data-category="workshop">
+                        <span class="category-icon" aria-hidden="true">🛠️</span>
+                        <h3 class="category-name">Workshop</h3>
+                        <p class="category-description">Hands-on sessions to learn new skills.</p>
+                    </a>
+
+                    <a href="#" class="category-card" data-category="seminar">
+                        <span class="category-icon" aria-hidden="true">🎤</span>
+                        <h3 class="category-name">Seminar</h3>
+                        <p class="category-description">Guest lectures and career guidance talks.</p>
+                    </a>
+
+                    <a href="#" class="category-card" data-category="competition">
+                        <span class="category-icon" aria-hidden="true">🏆</span>
+                        <h3 class="category-name">Competition</h3>
+                        <p class="category-description">Quizzes, coding contests, and debates.</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             5. PREVIOUS EVENTS SECTION
+             Note: This is the college's event record/archive.
+             Later, events whose date has passed will automatically
+             appear here. Cards use different class names
+             (previous-event-card) so they can be styled differently.
+             ============================================================ -->
+        <section class="section previous-events" id="previous-events" aria-labelledby="previous-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2 id="previous-heading" class="section-title">Previous Events</h2>
+                    <p class="section-subtitle">A record of the events our college has successfully conducted.</p>
+                </div>
+
+                <!-- Container for all previous event cards
+                     (Later: JavaScript will fill this container with data) -->
+                <div class="events-grid previous-events-grid" id="previous-events-list">
+
+                    <!-- ---------- Previous Event 1 ---------- -->
+                    <article class="previous-event-card" data-event-id="101" data-category="technical" data-status="completed">
+                        <div class="previous-event-badge">Completed</div>
+                        <h3 class="previous-event-title">Hackathon 2025</h3>
+                        <ul class="previous-event-meta">
+                            <li class="event-date">📅 <time datetime="2025-10-14">14 October 2025</time></li>
+                            <li class="event-category">🏷️ Technical</li>
+                        </ul>
+                        <p class="previous-event-description">
+                            A 24-hour hackathon where student teams built innovative solutions to real-world problems.
+                        </p>
+                        <a href="#" class="btn btn-outline btn-view-event">View Event</a>
+                    </article>
+
+                    <!-- ---------- Previous Event 2 ---------- -->
+                    <article class="previous-event-card" data-event-id="102" data-category="cultural" data-status="completed">
+                        <div class="previous-event-badge">Completed</div>
+                        <h3 class="previous-event-title">Annual Day Celebration</h3>
+                        <ul class="previous-event-meta">
+                            <li class="event-date">📅 <time datetime="2025-03-22">22 March 2025</time></li>
+                            <li class="event-category">🏷️ Cultural</li>
+                        </ul>
+                        <p class="previous-event-description">
+                            An evening of performances, award distribution, and celebrations with students, faculty, and guests.
+                        </p>
+                        <a href="#" class="btn btn-outline btn-view-event">View Event</a>
+                    </article>
+
+                    <!-- ---------- Previous Event 3 ---------- -->
+                    <article class="previous-event-card" data-event-id="103" data-category="workshop" data-status="completed">
+                        <div class="previous-event-badge">Completed</div>
+                        <h3 class="previous-event-title">Python Programming Workshop</h3>
+                        <ul class="previous-event-meta">
+                            <li class="event-date">📅 <time datetime="2025-08-05">5 August 2025</time></li>
+                            <li class="event-category">🏷️ Workshop</li>
+                        </ul>
+                        <p class="previous-event-description">
+                            A two-day workshop introducing students to Python basics, problem solving, and mini projects.
+                        </p>
+                        <a href="#" class="btn btn-outline btn-view-event">View Event</a>
+                    </article>
+
+                    <!-- ---------- Previous Event 4 ---------- -->
+                    <article class="previous-event-card" data-event-id="104" data-category="sports" data-status="completed">
+                        <div class="previous-event-badge">Completed</div>
+                        <h3 class="previous-event-title">Inter-Department Cricket Tournament</h3>
+                        <ul class="previous-event-meta">
+                            <li class="event-date">📅 <time datetime="2025-02-10">10 February 2025</time></li>
+                            <li class="event-category">🏷️ Sports</li>
+                        </ul>
+                        <p class="previous-event-description">
+                            Teams from different departments competed in an exciting knockout cricket tournament.
+                        </p>
+                        <a href="#" class="btn btn-outline btn-view-event">View Event</a>
+                    </article>
+
+                </div>
+                <!-- End of previous events list -->
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             6. WHY USE OUR PLATFORM SECTION
+             ============================================================ -->
+        <section class="section why-us" id="why-us" aria-labelledby="why-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2 id="why-heading" class="section-title">Why Use Our Platform?</h2>
+                    <p class="section-subtitle">Everything you need to stay connected with campus events.</p>
+                </div>
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+                        <span class="feature-icon" aria-hidden="true">📌</span>
+                        <h3 class="feature-title">All Events in One Place</h3>
+                        <p class="feature-description">No more searching through notice boards and group chats.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon" aria-hidden="true">📝</span>
+                        <h3 class="feature-title">Easy Event Registration</h3>
+                        <p class="feature-description">Register for any event in just a few clicks.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon" aria-hidden="true">📅</span>
+                        <h3 class="feature-title">View Upcoming Events</h3>
+                        <p class="feature-description">Stay updated with dates, timings, and venues.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon" aria-hidden="true">🗂️</span>
+                        <h3 class="feature-title">Previous Event Records</h3>
+                        <p class="feature-description">Explore the history of events conducted by the college.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <span class="feature-icon" aria-hidden="true">😊</span>
+                        <h3 class="feature-title">Simple & Student-Friendly</h3>
+                        <p class="feature-description">A clean and easy-to-use design made for students.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             7. HOW IT WORKS SECTION
+             ============================================================ -->
+        <section class="section how-it-works" id="how-it-works" aria-labelledby="how-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2 id="how-heading" class="section-title">How It Works</h2>
+                    <p class="section-subtitle">Joining a college event is as easy as 1-2-3-4.</p>
+                </div>
+
+                <ol class="steps-list">
+
+                    <li class="step">
+                        <span class="step-number">1</span>
+                        <h3 class="step-title">Discover an Event</h3>
+                        <p class="step-description">Browse upcoming events and find what interests you.</p>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-number">2</span>
+                        <h3 class="step-title">View Event Details</h3>
+                        <p class="step-description">Check the date, time, venue, and event description.</p>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-number">3</span>
+                        <h3 class="step-title">Register</h3>
+                        <p class="step-description">Sign up quickly using your student account.</p>
+                    </li>
+
+                    <li class="step">
+                        <span class="step-number">4</span>
+                        <h3 class="step-title">Participate</h3>
+                        <p class="step-description">Attend the event and enjoy the experience.</p>
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             8. ABOUT SECTION
+             ============================================================ -->
+        <section class="section about" id="about" aria-labelledby="about-heading">
+            <div class="container about-container">
+
+                <!-- About Image Placeholder -->
+                <div class="about-image">
+                    <div class="image-placeholder">About Image Placeholder</div>
+                </div>
+
+                <!-- About Text -->
+                <div class="about-content">
+                    <h2 id="about-heading" class="section-title">About College Event Management System</h2>
+                    <p>
+                        The College Event Management System is a web platform created to bring all
+                        college events together in one place. Students can easily discover upcoming
+                        events, read event details, and register online without any confusion.
+                    </p>
+                    <p>
+                        For college organizers and faculty, the system makes it simpler to publish
+                        events, manage participants, and keep a permanent record of previously
+                        conducted events. This saves time, reduces paperwork, and improves
+                        participation across the campus.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ============================================================
+             9. CONTACT SECTION
+             ============================================================ -->
+        <section class="section contact" id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+
+                <div class="section-header">
+                    <h2 id="contact-heading" class="section-title">Contact Us</h2>
+                    <p class="section-subtitle">Have a question about an event? Get in touch with us.</p>
+                </div>
+
+                <div class="contact-container">
+
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h3 class="contact-info-title">Get in Touch</h3>
+                        <address class="contact-details">
+                            <p class="contact-item contact-email">📧 Email: <a href="mailto:events@college.edu">events@college.edu</a></p>
+                            <p class="contact-item contact-phone">📞 Phone: <a href="tel:+910000000000">+91 00000 00000</a></p>
+                            <p class="contact-item contact-address">📍 Address: College Name, Street Address, City, State - 000000</p>
+                        </address>
+                    </div>
+
+                    <!-- Contact Form
+                         (Later: connect to backend using action and method) -->
+                    <form class="contact-form" id="contact-form" action="#" method="post">
+
+                        <div class="form-group">
+                            <label for="contact-name">Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="Enter your email address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Enter the subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ============================================================
+         10. FOOTER
+         ============================================================ -->
+    <footer class="site-footer" id="footer">
+        <div class="container footer-container">
+
+            <!-- Footer: About -->
+            <div class="footer-column footer-about">
+                <h3 class="footer-title">College Events</h3>
+                <p class="footer-text">
+                    Your one place to discover, view, and register for college events.
+                </p>
+            </div>
+
+            <!-- Footer: Quick Links -->
+            <nav class="footer-column footer-links" aria-label="Footer quick links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#upcoming-events">Events</a></li>
+                    <li><a href="#previous-events">Previous Events</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Footer: Contact Information -->
+            <div class="footer-column footer-contact">
+                <h3 class="footer-title">Contact</h3>
+                <ul>
+                    <li>📧 events@college.edu</li>
+                    <li>📞 +91 00000 00000</li>
+                    <li>📍 College Name, City, State</li>
+                </ul>
+            </div>
+
+            <!-- Footer: Social Media Placeholders -->
+            <div class="footer-column footer-social">
+                <h3 class="footer-title">Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook">Facebook</a></li>
+                    <li><a href="#" aria-label="Instagram">Instagram</a></li>
+                    <li><a href="#" aria-label="Twitter">Twitter</a></li>
+                    <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 College Events. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script src="script.js"></script>   
+
+<!-- Registration Modal -->
+<div id="registrationModal" class="registration-modal">
+    <div class="registration-box">
+
+        <button type="button" id="closeRegistration" class="close-registration">
+            &times;
+        </button>
+
+        <h2>Event Registration</h2>
+
+        <form id="registrationForm">
+
+            <input type="hidden" id="selectedEvent">
+
+            <label>Name</label>
+            <input type="text" id="studentName" required>
+
+            <label>Email</label>
+            <input type="email" id="studentEmail" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="studentPhone" required>
+
+            <label>Department</label>
+            <input type="text" id="studentDepartment" required>
+
+            <button type="submit" class="btn btn-primary">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+
+
+    
+<!-- Admin Dashboard -->
+<div class="admin-section admin-hidden">
+    <h2>Admin Dashboard</h2>
+
+    <div class="dashboard-cards">
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-icon">📅</div>
+        <div>
+            <h3>Total Events</h3>
+            <p id="totalEvents">0</p>
+            <span>All registered events</span>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-icon">👥</div>
+        <div>
+            <h3>Total Registrations</h3>
+            <p id="totalRegistrations">0</p>
+            <span>Student registrations</span>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-icon">🚀</div>
+        <div>
+            <h3>Upcoming Events</h3>
+            <p id="upcomingEvents">0</p>
+            <span>Events coming soon</span>
+        </div>
+    </div>
+
+    <div class="dashboard-card">
+        <div class="dashboard-card-icon">📚</div>
+        <div>
+            <h3>Previous Events</h3>
+            <p id="previousEvents">0</p>
+            <span>Completed events</span>
+        </div>
+    </div>
+
+</div>
+
+    </div>
+
+</div>
+
+<!-- Admin Add Event -->
+<div class="admin-section admin-hidden">
+
+<h2>Admin - Add New Event</h2>
+
+    <form id="adminEventForm">
+
+        <input type="text" id="eventTitle" placeholder="Event Title" required>
+
+        <input type="text" id="eventCategory" placeholder="Category" required>
+
+        <input type="text" id="eventDate" placeholder="Date (e.g. 12 December 2026)" required>
+
+        <input type="text" id="eventTime" placeholder="Time (e.g. 10:00 AM - 5:00 PM)" required>
+
+        <input type="text" id="eventVenue" placeholder="Venue" required>
+
+        <textarea id="eventDescription" placeholder="Event Description" required></textarea>
+
+        <button type="submit" class="btn btn-primary">
+            Add Event
+        </button>
+
+</form>
+
+</div>
+<!-- Admin Manage Events -->
+<div class="admin-section admin-hidden">
+    <h2>Admin - Manage Events</h2>
+
+    <div id="adminEventsList"></div>
+
+</div>
+<!-- Edit Event Form -->
+<div class="admin-section admin-hidden" id="editEventSection" style="display: none;">
+    <h2>Edit Event</h2>
+
+    <form id="editEventForm">
+
+        <input type="hidden" id="editEventId">
+
+        <input type="text" id="editEventTitle" placeholder="Event Title" required>
+
+        <input type="text" id="editEventCategory" placeholder="Category" required>
+
+        <input type="text" id="editEventDate" placeholder="Date" required>
+
+        <input type="text" id="editEventTime" placeholder="Time" required>
+
+        <input type="text" id="editEventVenue" placeholder="Venue" required>
+
+        <textarea id="editEventDescription" placeholder="Event Description" required></textarea>
+
+        <button type="submit" class="btn btn-primary">
+            Save Changes
+        </button>
+
+        <button type="button" id="cancelEditEvent">
+            Cancel
+        </button>
+
+    </form>
+
+</div>
+<!-- Admin - View Registrations -->
+<div class="admin-section admin-hidden">
+    <h2>Admin - Student Registrations</h2>
+
+    <div id="registrationsList"></div>
+
+</div>
+<!-- Event Details Modal -->
+<div id="eventDetailsModal" class="event-details-modal">
+
+    <div class="event-details-box">
+
+        <button type="button" id="closeEventDetails" class="close-event-details">
+            &times;
+        </button>
+
+        <h2 id="detailsTitle">Event Title</h2>
+
+        <p><strong>Category:</strong> <span id="detailsCategory"></span></p>
+
+        <p><strong>Date:</strong> <span id="detailsDate"></span></p>
+
+        <p><strong>Time:</strong> <span id="detailsTime"></span></p>
+
+        <p><strong>Venue:</strong> <span id="detailsVenue"></span></p>
+
+        <p id="detailsDescription"></p>
+
+    </div>
+
+</div>
+<!-- Admin Login -->
+<div class="admin-login-section">
+
+    <h2>Admin Login</h2>
+
+    <form id="adminLoginForm">
+
+        <input
+            type="text"
+            id="adminUsername"
+            placeholder="Username"
+            required
+        >
+
+        <input
+            type="password"
+            id="adminPassword"
+            placeholder="Password"
+            required
+        >
+
+        <button type="submit" class="btn btn-primary">
+            Login
+        </button>
+
+    </form>
+
+</div>
+<!-- Student Attendance Section -->
+<div class="attendance-section">
+
+    <h2>Student Attendance</h2>
+
+    <p>
+        Upload your attendance letter for an event you attended.
+        Your teacher will verify your submission.
+    </p>
+
+    <form id="attendanceForm" enctype="multipart/form-data">
+
+        <label for="attendanceStudentId">Student ID / USN</label>
+        <input
+            type="text"
+            id="attendanceStudentId"
+            name="studentId"
+            placeholder="Enter your Student ID / USN"
+            required
+        >
+
+        <label for="attendanceStudentName">Student Name</label>
+        <input
+            type="text"
+            id="attendanceStudentName"
+            name="studentName"
+            placeholder="Enter your name"
+            required
+        >
+
+        <label for="attendanceEventName">Event Name</label>
+        <input
+            type="text"
+            id="attendanceEventName"
+            name="eventName"
+            placeholder="Enter event name"
+            required
+        >
+
+        <label for="attendanceEventDate">Event Date</label>
+        <input
+            type="date"
+            id="attendanceEventDate"
+            name="eventDate"
+            required
+        >
+
+        <label for="attendanceFile">Upload Attendance Letter (PDF only)</label>
+        <input
+            type="file"
+            id="attendanceFile"
+            name="attendanceFile"
+            accept=".pdf,application/pdf"
+            required
+        >
+
+        <button type="submit" class="btn btn-primary">
+            Submit Attendance
+        </button>
+
+    </form>
+
+<p id="attendanceMessage" style="display: none;"></p>
+</div>
+<!-- Teacher Login -->
+<div class="teacher-login-section">
+
+    <h2>👩‍🏫 Teacher Login</h2>
+
+    <form id="teacherLoginForm">
+
+        <input
+            type="text"
+            id="teacherUsername"
+            placeholder="Teacher Username"
+            required
+        >
+
+        <input
+            type="password"
+            id="teacherPassword"
+            placeholder="Teacher Password"
+            required
+        >
+
+        <button type="submit" class="btn btn-primary">
+            Teacher Login
+        </button>
+
+    </form>
+
+    <p id="teacherLoginMessage" style="display: none;"></p>
+
+</div>
+
+<!-- Teacher Attendance Verification -->
+<div class="teacher-attendance-section">
+
+    <h2>Teacher Attendance Verification</h2>
+
+    <p>
+        Review student attendance submissions and approve them as
+        Present or Absent.
+    </p>
+
+    <div id="teacherAttendanceList">
+        <p>No attendance loaded yet.</p>
+    </div>
+
+</div>
+
+
+<!-- Student Attendance Notification -->
+<div class="attendance-notification-section">
+
+    <h2>🔔 Attendance Notifications</h2>
+
+    <div id="attendanceNotifications">
+        <p>No new attendance updates.</p>
+    </div>
+
+</div>
+</body>
+
+</html>

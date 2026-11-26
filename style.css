@@ -1,0 +1,2200 @@
+/* ==========================================================================
+   COLLEGE EVENT MANAGEMENT SYSTEM - style.css
+   ========================================================================== */
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Main colors */
+    --primary: #4f46e5;
+    --primary-dark: #3730a3;
+    --primary-light: #eef2ff;
+    --secondary: #0ea5e9;
+    --accent: #f59e0b;
+
+    /* Neutrals */
+    --dark: #0f172a;
+    --text: #334155;
+    --text-light: #64748b;
+    --bg: #ffffff;
+    --bg-soft: #f8fafc;
+    --border: #e2e8f0;
+
+    /* Previous events (muted slate tone) */
+    --archive-bg: #f1f5f9;
+    --archive-accent: #64748b;
+    --archive-dark: #475569;
+
+    /* Effects */
+    --radius: 14px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.10);
+    --shadow-lg: 0 16px 40px rgba(79, 70, 229, 0.20);
+    --transition: all 0.3s ease;
+    --header-height: 72px;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 10px);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    overflow-x: hidden;
+}
+
+img,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+address {
+    font-style: normal;
+}
+
+h1, h2, h3, h4 {
+    color: var(--dark);
+    line-height: 1.25;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   LAYOUT HELPERS & BUTTONS
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.section-header .section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 1.05rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.45);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-secondary:hover {
+    background: #fff;
+    color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar {
+    max-width: 1200px;
+    min-height: var(--header-height);
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.logo-link:hover {
+    color: var(--primary);
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+    border-radius: 12px;
+    background: var(--primary-light);
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.navbar-links a {
+    position: relative;
+    display: block;
+    padding: 8px 14px;
+    font-weight: 500;
+    color: var(--text);
+    border-radius: var(--radius-sm);
+}
+
+.navbar-links a::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+.navbar-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.btn-login {
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 90px 0 100px;
+    color: #fff;
+    background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #0369a1 100%);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 420px;
+    height: 420px;
+    top: -140px;
+    right: -100px;
+}
+
+.hero::after {
+    width: 280px;
+    height: 280px;
+    bottom: -120px;
+    left: -80px;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-title {
+    font-size: 3.4rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 520px;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.hero-buttons .btn {
+    padding: 14px 30px;
+}
+
+.hero-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+    padding: 24px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 500;
+    border: 2px dashed rgba(255, 255, 255, 0.45);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   UPCOMING EVENTS
+   ========================================================================== */
+.upcoming-events {
+    background: var(--bg-soft);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.event-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
+}
+
+.event-image {
+    overflow: hidden;
+}
+
+.image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 190px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #6366f1, #0ea5e9);
+    transition: transform 0.5s ease;
+}
+
+.event-card:hover .image-placeholder {
+    transform: scale(1.06);
+}
+
+/* Different colors for each card image */
+.upcoming-event-card:nth-child(2) .image-placeholder { background: linear-gradient(135deg, #ec4899, #f59e0b); }
+.upcoming-event-card:nth-child(3) .image-placeholder { background: linear-gradient(135deg, #8b5cf6, #3b82f6); }
+.upcoming-event-card:nth-child(4) .image-placeholder { background: linear-gradient(135deg, #10b981, #0ea5e9); }
+.upcoming-event-card:nth-child(5) .image-placeholder { background: linear-gradient(135deg, #f97316, #ef4444); }
+.upcoming-event-card:nth-child(6) .image-placeholder { background: linear-gradient(135deg, #14b8a6, #6366f1); }
+
+.event-body {
+    flex: 1;
+    padding: 22px 22px 8px;
+}
+
+.event-body > .event-category {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 4px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    border-radius: 50px;
+}
+
+.event-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.event-meta {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 14px;
+    font-size: 0.92rem;
+    color: var(--text);
+}
+
+.event-meta li {
+    padding-left: 2px;
+}
+
+.event-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.event-actions {
+    display: flex;
+    gap: 12px;
+    padding: 18px 22px 24px;
+}
+
+.event-actions .btn {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   CATEGORIES
+   ========================================================================== */
+.event-categories {
+    background: var(--bg);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.category-card {
+    display: block;
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.category-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 16px;
+    font-size: 2rem;
+    background: var(--primary-light);
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.category-name {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    transition: var(--transition);
+}
+
+.category-description {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+    box-shadow: var(--shadow-lg);
+}
+
+.category-card:hover .category-name,
+.category-card:hover .category-description {
+    color: #fff;
+}
+
+.category-card:hover .category-icon {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(-5deg);
+}
+
+/* ==========================================================================
+   PREVIOUS EVENTS  (muted "archive" look, different from upcoming)
+   ========================================================================== */
+.previous-events {
+    background: var(--archive-bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.previous-events .section-header .section-title::after {
+    background: var(--archive-accent);
+}
+
+.previous-events-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.previous-event-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 22px 24px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--archive-accent);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.previous-event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--archive-dark);
+}
+
+.previous-event-badge {
+    align-self: flex-start;
+    margin-bottom: 14px;
+    padding: 3px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--archive-dark);
+    background: var(--archive-bg);
+    border: 1px solid #cbd5e1;
+    border-radius: 50px;
+}
+
+.previous-event-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--archive-dark);
+}
+
+.previous-event-meta {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 12px;
+    font-size: 0.88rem;
+    color: var(--text-light);
+}
+
+.previous-event-description {
+    flex: 1;
+    margin-bottom: 18px;
+    font-size: 0.92rem;
+    color: var(--text-light);
+}
+
+.btn-view-event {
+    align-self: flex-start;
+    padding: 8px 20px;
+    font-size: 0.88rem;
+    color: var(--archive-dark);
+    border-color: var(--archive-accent);
+}
+
+.btn-view-event:hover {
+    background: var(--archive-dark);
+    border-color: var(--archive-dark);
+    color: #fff;
+}
+
+/* ==========================================================================
+   WHY US
+   ========================================================================== */
+.why-us {
+    background: var(--bg);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.feature-card {
+    padding: 30px 26px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+    background: var(--primary-light);
+    border-radius: 14px;
+}
+
+.feature-title {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.feature-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   HOW IT WORKS
+   ========================================================================== */
+.how-it-works {
+    background: var(--primary-light);
+}
+
+.steps-list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    counter-reset: none;
+}
+
+/* Connecting line behind step numbers (desktop) */
+.steps-list::before {
+    content: "";
+    position: absolute;
+    top: 34px;
+    left: 12%;
+    right: 12%;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, var(--primary) 0 10px, transparent 10px 20px);
+    opacity: 0.4;
+}
+
+.step {
+    position: relative;
+    z-index: 1;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 18px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: 5px solid var(--primary-light);
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    transition: var(--transition);
+}
+
+.step:hover .step-number {
+    transform: scale(1.12);
+}
+
+.step-title {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.step-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about {
+    background: var(--bg);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 56px;
+}
+
+.about-image .image-placeholder {
+    height: 380px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-md);
+}
+
+.about-image:hover .image-placeholder {
+    transform: none;
+}
+
+.about-content .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about-content .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.about-content p {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 1.02rem;
+}
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.contact {
+    background: var(--bg-soft);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 36px;
+    align-items: start;
+}
+
+.contact-info {
+    padding: 36px 30px;
+    color: #fff;
+    background: linear-gradient(135deg, #1e1b4b, var(--primary-dark));
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-info-title {
+    margin-bottom: 22px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.contact-item {
+    margin-bottom: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    overflow-wrap: anywhere;
+}
+
+.contact-item a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+.contact-form {
+    padding: 36px 30px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    color: var(--dark);
+    background: var(--bg-soft);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    background: #fff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+    background: var(--dark);
+    color: #cbd5e1;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.3fr 1fr;
+    gap: 40px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.footer-title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-size: 1.15rem;
+    color: #fff;
+}
+
+.footer-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 36px;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--secondary);
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+
+.site-footer li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    overflow-wrap: anywhere;
+}
+
+.site-footer a {
+    color: #cbd5e1;
+}
+
+.site-footer a:hover {
+    color: var(--secondary);
+    padding-left: 6px;
+}
+
+.footer-bottom {
+    padding: 20px;
+    text-align: center;
+    font-size: 0.88rem;
+    color: #94a3b8;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+/* ---------- Large tablets / small laptops ---------- */
+@media (max-width: 1024px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .previous-events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps-list {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 40px;
+    }
+
+    .steps-list::before {
+        display: none;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .navbar-links a {
+        padding: 8px 10px;
+    }
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 768px) {
+    .section {
+        padding: 56px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    /* Navbar: logo + button on first row, links on second row */
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px 16px;
+        padding: 10px 16px;
+    }
+
+    .navbar-links {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+        padding-top: 8px;
+        border-top: 1px solid var(--border);
+    }
+
+    .navbar-links a {
+        padding: 6px 12px;
+        font-size: 0.92rem;
+    }
+
+    html {
+        scroll-padding-top: 130px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 56px 0 64px;
+        text-align: center;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image-placeholder {
+        min-height: 240px;
+    }
+
+    /* Contact + About */
+    .about-container,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about-image .image-placeholder {
+        height: 260px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .logo-link {
+        font-size: 1.15rem;
+    }
+
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn-login {
+        padding: 8px 14px;
+        font-size: 0.82rem;
+        white-space: normal;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .events-grid,
+    .previous-events-grid,
+    .features-grid,
+    .steps-list,
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+    }
+
+    .category-card {
+        padding: 22px 12px;
+    }
+
+    .category-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.6rem;
+    }
+
+    .category-description {
+        font-size: 0.82rem;
+    }
+
+    .event-actions {
+        flex-direction: column;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 26px 20px;
+    }
+
+    .footer-container {
+        padding-top: 44px;
+        gap: 28px;
+    }
+}
+
+/* ---------- Very small phones ---------- */
+@media (max-width: 380px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.55rem;
+    }
+}
+/* Registration Modal */
+.registration-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-box {
+    background: white;
+    width: 90%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.registration-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.registration-box label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.registration-box input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.registration-box button[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+}
+
+.close-registration {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+/* Admin Dashboard */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.dashboard-card {
+    padding: 25px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dashboard-card h3 {
+    margin-bottom: 10px;
+}
+
+.dashboard-card p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+/* Student Registrations */
+
+.registration-item {
+    padding: 20px;
+    margin-top: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-item h3 {
+    margin-bottom: 10px;
+}
+
+.registration-item p {
+    margin: 6px 0;
+}
+.event-details-modal {
+display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+.event-details-box {
+    background: white;
+    width: 500px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: #222;
+}
+
+.event-details-box h2 {
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.event-details-box p {
+    margin: 10px 0;
+    color: #444;
+}
+
+.close-event-details {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+}
+/* Admin Login */
+
+.admin-login-section {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.admin-login-section h2 {
+    margin-bottom: 20px;
+}
+
+.admin-login-section input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.admin-login-section button {
+    width: 100%;
+}
+.admin-hidden {
+    display: none !important;
+}
+/* =========================
+   STUDENT ATTENDANCE
+========================= */
+
+.attendance-section {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+}
+
+.attendance-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.attendance-section > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#attendanceForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#attendanceForm label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#attendanceForm input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+#attendanceForm input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.12);
+}
+
+#attendanceForm input[type="file"] {
+    padding: 10px;
+    background: #f8f8ff;
+}
+
+#attendanceForm button {
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#attendanceMessage {
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    background: #e8f8ee;
+    color: #1d7a3f;
+    font-weight: 600;
+}
+/* ==========================================
+   STUDENT ATTENDANCE NOTIFICATIONS
+========================================== */
+
+.attendance-notification-section {
+    width: 92%;
+    max-width: 900px;
+    margin: 30px auto 60px;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.attendance-notification-section h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #222;
+}
+
+.attendance-notification {
+    padding: 18px 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: #f7f7ff;
+    border-left: 5px solid #6c63ff;
+}
+
+.attendance-notification strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #222;
+}
+
+.attendance-notification p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.notification-present {
+    border-left-color: #2e9d57;
+    background: #effaf3;
+}
+
+.notification-absent {
+    border-left-color: #d64545;
+    background: #fff1f1;
+}
+
+
+
+/* ==========================================
+   TEACHER ATTENDANCE DASHBOARD
+========================================== */
+
+.teacher-attendance-section {
+    width: 94%;
+    max-width: 1250px;
+    margin: 70px auto;
+    padding: 35px;
+    background: linear-gradient(135deg, #ffffff, #f8f7ff);
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+    border: 1px solid #eeeaff;
+}
+
+.teacher-attendance-section h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+}
+
+.teacher-attendance-section > p {
+    margin: 8px 0 28px;
+    color: #777;
+    font-size: 15px;
+}
+
+/* Dashboard heading */
+
+.teacher-attendance-section h2::before {
+    content: "📋";
+    margin-right: 10px;
+}
+
+/* Table container */
+
+.attendance-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Table */
+
+.attendance-table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.attendance-table th {
+    background: #f1efff;
+    color: #4b3fa3;
+    padding: 17px 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-bottom: 1px solid #e4e0ff;
+}
+
+.attendance-table th:first-child {
+    border-radius: 16px 0 0 0;
+}
+
+.attendance-table th:last-child {
+    border-radius: 0 16px 0 0;
+}
+
+.attendance-table td {
+    padding: 17px 16px;
+    border-bottom: 1px solid #eeeeee;
+    color: #444;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.attendance-table tbody tr {
+    transition: 0.2s ease;
+}
+
+.attendance-table tbody tr:hover {
+    background: #faf9ff;
+    transform: scale(1.002);
+}
+
+/* Student ID */
+
+.attendance-table td:first-child {
+    font-weight: 700;
+    color: #5b4bc4;
+}
+
+/* Student name */
+
+.student-name {
+    font-weight: 700;
+    color: #222;
+}
+
+/* Status badges */
+
+.status-pending,
+.status-present,
+.status-rejected {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-pending {
+    background: #fff4cc;
+    color: #9a7200;
+}
+
+.status-present {
+    background: #e7f8ed;
+    color: #208346;
+}
+
+.status-rejected {
+    background: #ffe7e7;
+    color: #c62828;
+}
+
+/* PDF button */
+
+.view-pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 13px;
+    border-radius: 9px;
+    text-decoration: none;
+    background: #f0edff;
+    color: #5b4bc4;
+    font-weight: 700;
+    font-size: 12px;
+    transition: 0.2s ease;
+}
+
+.view-pdf-btn:hover {
+    background: #ded8ff;
+    transform: translateY(-2px);
+}
+
+/* Action buttons */
+
+.attendance-action-btn {
+    border: none;
+    padding: 9px 13px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 5px;
+    transition: 0.2s ease;
+}
+
+.present-btn {
+    background: #e5f8ec;
+    color: #218443;
+}
+
+.present-btn:hover {
+    background: #c9efd7;
+    transform: translateY(-2px);
+}
+
+.reject-btn {
+    background: #ffe5e5;
+    color: #c62828;
+}
+
+.reject-btn:hover {
+    background: #ffd0d0;
+    transform: translateY(-2px);
+}
+
+/* Updated text */
+
+.attendance-table td:last-child span {
+    color: #777;
+    font-weight: 600;
+}
+
+/* Empty message */
+
+#teacherAttendanceList > p {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+    background: #ffffff;
+    border-radius: 15px;
+}
+/* ==========================================
+   STUDENT ATTENDANCE - ATTRACTIVE DESIGN
+========================================== */
+
+.attendance-section {
+    width: 94%;
+    max-width: 850px;
+    margin: 60px auto;
+    padding: 35px;
+    background: linear-gradient(135deg, #ffffff, #f8f7ff);
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.10);
+    border: 1px solid #eeeaff;
+    box-sizing: border-box;
+}
+
+.attendance-section h2 {
+    margin: 0 0 8px;
+    font-size: 30px;
+    color: #222;
+}
+
+.attendance-section h2::before {
+    content: "📄";
+    margin-right: 10px;
+}
+
+.attendance-section > p {
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 28px;
+}
+
+#attendanceForm {
+    display: grid;
+    gap: 14px;
+}
+
+#attendanceForm label {
+    font-weight: 600;
+    color: #444;
+    margin-top: 5px;
+}
+
+#attendanceForm input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    background: #fff;
+    transition: 0.2s ease;
+}
+
+#attendanceForm input:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.10);
+}
+
+#attendanceForm input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#attendanceForm button {
+    margin-top: 10px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#attendanceForm button:hover {
+    background: #5848d4;
+    transform: translateY(-2px);
+}
+
+#attendanceMessage {
+    margin-top: 20px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    background: #e8f8ee;
+    color: #218443;
+    font-weight: 600;
+}
+/* ==========================================
+   TEACHER VERIFICATION - LOGIN PROTECTION
+========================================== */
+
+.teacher-attendance-section {
+    display: none;
+}
+/* =========================================================
+   ATTRACTIVE ADMIN DASHBOARD
+   ========================================================= */
+
+.admin-section {
+    max-width: 1150px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8e8e8;
+}
+
+.admin-section h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.dashboard-card {
+    padding: 25px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8f9ff, #eef1ff);
+    border: 1px solid #e1e5ff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.10);
+}
+
+.dashboard-card h3 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0.75;
+}
+
+.dashboard-card p {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 800;
+}
+
+/* Admin forms */
+
+#adminEventForm,
+#editEventForm {
+    display: grid;
+    gap: 15px;
+}
+
+#adminEventForm input,
+#adminEventForm textarea,
+#editEventForm input,
+#editEventForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid #dcdfe8;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#adminEventForm input:focus,
+#adminEventForm textarea:focus,
+#editEventForm input:focus,
+#editEventForm textarea:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+#adminEventForm textarea,
+#editEventForm textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Admin event list */
+
+#adminEventsList {
+    display: grid;
+    gap: 15px;
+}
+
+#adminEventsList > div {
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+    background: #fafbff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#adminEventsList > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Registration cards */
+
+#registrationsList {
+    display: grid;
+    gap: 15px;
+}
+
+.registration-item {
+    padding: 20px;
+    border-radius: 15px;
+    background: #fafbff;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registration-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.registration-item h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.registration-item p {
+    margin: 7px 0;
+}
+
+/* Admin login */
+
+.admin-login-section {
+    max-width: 480px;
+    margin: 35px auto;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10);
+    border: 1px solid #e5e7eb;
+}
+
+.admin-login-section h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 26px;
+}
+
+#adminLoginForm {
+    display: grid;
+    gap: 15px;
+}
+
+#adminLoginForm input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid #dcdfe8;
+    border-radius: 12px;
+    font-size: 15px;
+    outline: none;
+}
+
+#adminLoginForm input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+/* Buttons */
+
+.admin-section button,
+.admin-login-section button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.admin-section button:hover,
+.admin-login-section button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Edit section */
+
+#editEventSection {
+    background: #fffdf5;
+    border: 1px solid #f0df9a;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-section {
+        margin: 20px 12px;
+        padding: 20px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card p {
+        font-size: 28px;
+    }
+
+    .admin-login-section {
+        margin: 25px 12px;
+        padding: 22px;
+    }
+}
+/* =========================================================
+   ADMIN DASHBOARD CARD ICONS
+   ========================================================= */
+
+.dashboard-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-height: 120px;
+}
+
+.dashboard-card-icon {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: #ffffff;
+    font-size: 27px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card h3 {
+    margin-bottom: 6px;
+}
+
+.dashboard-card p {
+    margin-bottom: 4px;
+}
+
+.dashboard-card span {
+    font-size: 13px;
+    opacity: 0.65;
+}
+/* =========================================================
+   ADMIN ADD EVENT - MODERN DESIGN
+   ========================================================= */
+
+.admin-section:has(#adminEventForm) {
+    background: linear-gradient(135deg, #ffffff, #f8f9ff);
+}
+
+.admin-section:has(#adminEventForm) h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-section:has(#adminEventForm) h2::before {
+    content: "➕";
+    font-size: 24px;
+}
+
+#adminEventForm input,
+#adminEventForm textarea {
+    background: #ffffff;
+}
+
+#adminEventForm button {
+    width: fit-content;
+    min-width: 150px;
+    padding: 14px 24px;
+    font-size: 15px;
+}
+
+/* =========================================================
+   ADMIN MANAGE EVENTS
+   ========================================================= */
+
+.admin-section:has(#adminEventsList) {
+    background: linear-gradient(135deg, #ffffff, #f9fbff);
+}
+
+.admin-section:has(#adminEventsList) h2::before {
+    content: "📋";
+    margin-right: 10px;
+}
+
+#adminEventsList {
+    margin-top: 10px;
+}
+
+#adminEventsList > div {
+    position: relative;
+    padding: 22px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+#adminEventsList h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+#adminEventsList p {
+    line-height: 1.6;
+    margin: 7px 0;
+}
+
+#adminEventsList button {
+    margin-top: 12px;
+    margin-right: 8px;
+    padding: 10px 18px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ==========================================
+   TEACHER ATTENDANCE VERIFICATION
+   ========================================== */
+
+.teacher-attendance-section {
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 1200px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.teacher-attendance-section h2 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.teacher-attendance-section > p {
+    margin-bottom: 25px;
+    color: #666;
+}
+
+.attendance-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.attendance-table th {
+    padding: 15px;
+    text-align: left;
+    background: #f4f6f8;
+    font-weight: 600;
+}
+
+.attendance-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.student-name {
+    font-weight: 600;
+}
+
+.view-pdf-btn {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.attendance-action-btn {
+    border: none;
+    padding: 9px 14px;
+    margin: 3px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.present-btn {
+    background: #dff5e5;
+    color: #187a35;
+}
+
+.reject-btn {
+    background: #ffe1e1;
+    color: #b42323;
+}
+
+.status-pending {
+    font-weight: 600;
+    color: #d97706;
+}
+
+.status-present {
+    font-weight: 600;
+    color: #188038;
+}
+
+.status-rejected {
+    font-weight: 600;
+    color: #d93025;
+}
